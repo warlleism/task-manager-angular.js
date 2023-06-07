@@ -1,0 +1,119 @@
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-family: "Roboto", sans-serif;
+
+  .container-tasks {
+    height: 90%;
+    width: 400px;
+    display: flex;
+    padding: 30px;
+    margin: 0 20px 30px 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px rgba(0, 23, 65, 0.171);
+
+    .bar {
+      width: 100%;
+      height: 3px;
+      margin-bottom: 30px;
+      border-radius: 100px;
+      background: rgb(0, 57, 159);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 57, 159, 1) 0%,
+        rgba(249, 154, 186, 1) 18%,
+        rgba(137, 166, 239, 1) 30%,
+        rgba(180, 226, 114, 1) 39%,
+        rgba(210, 86, 86, 1) 54%,
+        rgba(56, 192, 101, 1) 70%,
+        rgba(177, 30, 171, 1) 84%,
+        rgba(0, 57, 159, 1) 100%
+      );
+    }
+    .title {
+      width: 100%;
+      display: flex;
+      font-weight: 700;
+      color: #5d6b75;
+      font-size: 1.3rem;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: space-between;
+      span {
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+
+    .task {
+      width: 100%;
+      height: 170px;
+      padding: 30px;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+      background-color: #fff;
+      box-shadow: 1px 10px 3px rgba(0, 23, 65, 0.171);
+
+      .icons {
+        right: 25px;
+        bottom: 20px;
+        display: flex;
+        position: absolute;
+
+        span {
+          font-size: 2rem;
+          cursor: pointer;
+          color: #5d6b75;
+          transition: 0.5s ease-in-out;
+        }
+
+        span:hover {
+          color: black;
+          font-size: 2.4rem;
+        }
+      }
+      .info {
+        font-weight: 700;
+        color: #333333;
+        font-size: 1.2rem;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .container-tasks:nth-child(1n + 1) {
+    background-color: #f0f4f9;
+  }
+
+  .container-tasks:nth-child(3) {
+    background-color: #d6e0ed;
+  }
+}
+
+@media screen and (max-width: 1198px) {
+  .main-container {
+    .container-tasks {
+      margin-top: 50px;
+    }
+  }
+}
+@media screen and (max-width: 879px) {
+  .main-container {
+    width: 100vw;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+    .container-tasks {
+      height: auto;
+    }
+  }
+}

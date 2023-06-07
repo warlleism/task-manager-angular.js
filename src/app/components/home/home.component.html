@@ -1,0 +1,60 @@
+<div class="main-container">
+
+  <div class="container-tasks">
+    <div class="title">
+      <div>A Fazer</div>
+      <span class="material-symbols-outlined"> pending </span>
+    </div>
+    <ng-container *ngFor="let item of items$ | async | keyvalue">
+      <div class="task" *ngIf="item.value.type === 'A Fazer'">
+        <div class="bar"></div>
+        <div class="info">
+          {{ item.value.task }}
+        </div>
+        <div class="icons">
+          <span class="material-symbols-outlined">Close</span>
+          <span class="material-symbols-outlined"> skip_next </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="container-tasks">
+    <div class="title">
+      <div>Fazendo</div>
+      <span class="material-symbols-outlined"> pending </span>
+    </div>
+    <ng-container *ngFor="let item of items$ | async | keyvalue">
+      <div class="task" *ngIf="item.value.type === 'Fazendo'">
+        <div class="bar"></div>
+        <div class="info">
+          {{ item.value.task }}
+        </div>
+        <div class="icons">
+          <span class="material-symbols-outlined"> skip_previous </span>
+          <span class="material-symbols-outlined">Close</span>
+          <span class="material-symbols-outlined"> check </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="container-tasks">
+    <div class="title">
+      <div>Entregues</div>
+      <span class="material-symbols-outlined"> pending </span>
+    </div>
+    <ng-container *ngFor="let item of items$ | async | keyvalue">
+      <div class="task" *ngIf="item.value.type === 'Entregues'">
+        <div class="bar"></div>
+        <div class="info">
+          {{ item.value.task }}
+        </div>
+        <div class="icons">
+          <span class="material-symbols-outlined"> skip_previous </span>
+          <span class="material-symbols-outlined">Close</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
