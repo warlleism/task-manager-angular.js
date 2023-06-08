@@ -8,18 +8,22 @@
       <div>A Fazer</div>
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
-    <ng-container *ngFor="let item of items$ | async | keyvalue">
-      <div class="task" *ngIf="item.value.type === 'A Fazer'">
+    <div *ngFor="let item of items$ | async">
+      <div class="task" *ngIf="item.category === 'A Fazer'">
         <div class="bar"></div>
         <div class="info">
-          {{ item.value.task }}
+          {{ item.task }}
         </div>
         <div class="icons">
-          <span class="material-symbols-outlined">Close</span>
+          <span
+            class="material-symbols-outlined"
+            (click)="deleteTask(item.id)"
+            >Close</span
+          >
           <span class="material-symbols-outlined"> skip_next </span>
         </div>
       </div>
-    </ng-container>
+    </div>
   </div>
 
   <div class="container-tasks">
@@ -27,11 +31,11 @@
       <div>Fazendo</div>
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
-    <ng-container *ngFor="let item of items$ | async | keyvalue">
-      <div class="task" *ngIf="item.value.type === 'Fazendo'">
+    <ng-container *ngFor="let item of items$ | async">
+      <div class="task" *ngIf="item.category === 'Fazendo'">
         <div class="bar"></div>
         <div class="info">
-          {{ item.value.task }}
+          {{ item.task }}
         </div>
         <div class="icons">
           <span class="material-symbols-outlined"> skip_previous </span>
@@ -47,11 +51,11 @@
       <div>Entregues</div>
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
-    <ng-container *ngFor="let item of items$ | async | keyvalue">
-      <div class="task" *ngIf="item.value.type === 'Entregues'">
+    <ng-container *ngFor="let item of items$ | async">
+      <div class="task" *ngIf="item.category === 'Entregues'">
         <div class="bar"></div>
         <div class="info">
-          {{ item.value.task }}
+          {{ item.task }}
         </div>
         <div class="icons">
           <span class="material-symbols-outlined"> skip_previous </span>

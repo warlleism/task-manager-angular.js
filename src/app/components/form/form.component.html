@@ -4,17 +4,17 @@
   >
 
   <div class="container-inputs">
-
     <div class="inputs">
       <div class="number">1</div>
       <span class="material-symbols-outlined"> drag_indicator </span>
-      <input type="text" />
+      <input [(ngModel)]="task" type="text" placeholder="Titulo" />
     </div>
 
     <div class="inputs">
       <div class="number">2</div>
       <span class="material-symbols-outlined"> drag_indicator </span>
-      <select name="" id="">
+      <select name="" id="" [(ngModel)]="category">
+        <option value="" disabled selected>Selecione uma categoria</option>
         <option value="A Fazer">A Fazer</option>
         <option value="Fazendo">Fazendo</option>
         <option value="Entregue">Entregue</option>
@@ -24,11 +24,11 @@
     <div class="inputs">
       <div class="number">3</div>
       <span class="material-symbols-outlined"> drag_indicator </span>
-      <input type="text" />
+      <input type="text" placeholder="Tecnologia" />
     </div>
 
     <div class="inputs">
-      <button>Criar Task</button>
+      <button (click)="createNewTask()">Criar Task</button>
     </div>
   </div>
 </div>
