@@ -1,9 +1,12 @@
 <div class="main-container">
+  <div class="create-button" (click)="showForm(true)">
+    <span class="material-symbols-outlined"> add </span>
+  </div>
 
   <div class="container-tasks">
     <div class="title">
       <div>A Fazer</div>
-      <span class="material-symbols-outlined"> pending </span>
+      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async | keyvalue">
       <div class="task" *ngIf="item.value.type === 'A Fazer'">
@@ -22,7 +25,7 @@
   <div class="container-tasks">
     <div class="title">
       <div>Fazendo</div>
-      <span class="material-symbols-outlined"> pending </span>
+      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async | keyvalue">
       <div class="task" *ngIf="item.value.type === 'Fazendo'">
@@ -42,7 +45,7 @@
   <div class="container-tasks">
     <div class="title">
       <div>Entregues</div>
-      <span class="material-symbols-outlined"> pending </span>
+      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async | keyvalue">
       <div class="task" *ngIf="item.value.type === 'Entregues'">
@@ -57,4 +60,6 @@
       </div>
     </ng-container>
   </div>
+
+  <app-form (hiddenForm)="showForm(false)" />
 </div>
