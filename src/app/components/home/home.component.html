@@ -8,8 +8,8 @@
       <div>A Fazer</div>
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
-    <div *ngFor="let item of items$ | async">
-      <div class="task" *ngIf="item.category === 'A Fazer'">
+    <ng-container *ngFor="let item of items$ | async" >
+      <div class="task" *ngIf="item.category === 'A Fazer'" (click)="updateTask(item)">
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
@@ -23,7 +23,7 @@
           <span class="material-symbols-outlined"> skip_next </span>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 
   <div class="container-tasks">
@@ -32,7 +32,7 @@
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async">
-      <div class="task" *ngIf="item.category === 'Fazendo'">
+      <div class="task" *ngIf="item.category === 'Fazendo'" (click)="updateTask(item)">
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
@@ -52,7 +52,7 @@
       <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async">
-      <div class="task" *ngIf="item.category === 'Entregues'">
+      <div class="task" *ngIf="item.category === 'Entregues'" (click)="updateTask(item)">
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
@@ -65,5 +65,5 @@
     </ng-container>
   </div>
 
-  <app-form (hiddenForm)="showForm(false)" />
+  <app-form (hiddenForm)="showForm(false)" [category]="category" [task]="task" [id]="id" />
 </div>

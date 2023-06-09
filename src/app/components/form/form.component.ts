@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ITarefas, addNewTask } from 'src/app/store/app.state';
+import { ITarefas, addNewTask, updateTask } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-form',
@@ -9,8 +9,9 @@ import { ITarefas, addNewTask } from 'src/app/store/app.state';
 })
 export class FormComponent {
 
-  task!: string;
-  category!: string;
+  @Input() task!: string;
+  @Input() category!: string;
+  @Input() id!: number;
 
   @Output() hiddenForm: EventEmitter<any> = new EventEmitter()
 
@@ -22,6 +23,11 @@ export class FormComponent {
 
   createNewTask() {
     this.store.dispatch(addNewTask({ task: this.task, category: this.category }))
+  }
+
+  updateTask() {
+    this.store.dispatch(updateTask({ id: this.id, task: this.task, category: this.category }))
+    window.location.reload();
   }
 
 
