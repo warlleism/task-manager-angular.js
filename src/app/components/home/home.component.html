@@ -6,21 +6,27 @@
   <div class="container-tasks">
     <div class="title">
       <div>A Fazer</div>
-      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
-    <ng-container *ngFor="let item of items$ | async" >
-      <div class="task" *ngIf="item.category === 'A Fazer'" (click)="updateTask(item)">
+    <ng-container *ngFor="let item of items$ | async">
+      <div
+        class="task"
+        *ngIf="item.category === 'A Fazer'"
+      >
+        <span class="material-symbols-outlined horiz" (click)="updateTask(item)"> more_horiz </span>
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
         </div>
         <div class="icons">
-          <span
-            class="material-symbols-outlined"
-            (click)="deleteTask(item.id)"
+          <span class="material-symbols-outlined" (click)="deleteTask(item.id)"
             >Close</span
           >
-          <span class="material-symbols-outlined"> skip_next </span>
+          <span
+            class="material-symbols-outlined"
+            (click)="editCategory(item, 'Fazendo')"
+          >
+            skip_next
+          </span>
         </div>
       </div>
     </ng-container>
@@ -29,18 +35,33 @@
   <div class="container-tasks">
     <div class="title">
       <div>Fazendo</div>
-      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async">
-      <div class="task" *ngIf="item.category === 'Fazendo'" (click)="updateTask(item)">
+      <div
+        class="task"
+        *ngIf="item.category === 'Fazendo'"
+      >
+        <span class="material-symbols-outlined horiz" (click)="updateTask(item)"> more_horiz </span>
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
         </div>
         <div class="icons">
-          <span class="material-symbols-outlined"> skip_previous </span>
-          <span class="material-symbols-outlined">Close</span>
-          <span class="material-symbols-outlined"> check </span>
+          <span
+            class="material-symbols-outlined"
+            (click)="editCategory(item, 'A Fazer')"
+          >
+            skip_previous
+          </span>
+          <span class="material-symbols-outlined" (click)="deleteTask(item.id)"
+            >Close</span
+          >
+          <span
+            class="material-symbols-outlined"
+            (click)="editCategory(item, 'Entregue')"
+          >
+            skip_next
+          </span>
         </div>
       </div>
     </ng-container>
@@ -49,21 +70,38 @@
   <div class="container-tasks">
     <div class="title">
       <div>Entregues</div>
-      <span class="material-symbols-outlined"> more_horiz </span>
     </div>
     <ng-container *ngFor="let item of items$ | async">
-      <div class="task" *ngIf="item.category === 'Entregues'" (click)="updateTask(item)">
+      <div
+        class="task"
+        *ngIf="item.category === 'Entregue'"
+      >
+        <span class="material-symbols-outlined horiz" (click)="updateTask(item)"> more_horiz </span>
         <div class="bar"></div>
         <div class="info">
           {{ item.task }}
         </div>
         <div class="icons">
-          <span class="material-symbols-outlined"> skip_previous </span>
-          <span class="material-symbols-outlined">Close</span>
+          <span
+            class="material-symbols-outlined"
+            (click)="editCategory(item, 'Fazendo')"
+          >
+            skip_previous
+          </span>
+          <span class="material-symbols-outlined" (click)="deleteTask(item.id)"
+            >Check</span
+          >
         </div>
       </div>
     </ng-container>
   </div>
 
-  <app-form (hiddenForm)="showForm(false)" [category]="category" [task]="task" [id]="id" />
+  <app-form
+    (hiddenForm)="showForm(false)"
+    [category]="category"
+    [task]="task"
+    [id]="id"
+  />
+
+  <app-box-model [id]="id" />
 </div>

@@ -1,0 +1,17 @@
+<div class="container-box" *ngIf="box$ | async">
+  <div (click)="hiddenModal()" class="background"></div>
+  <span class="material-symbols-outlined close-icon" (click)="hiddenModal()">
+    close
+  </span>
+
+  <div class="model">
+    <div class="info">
+      <div class="txt1">Por favor, Confirme</div>
+      <div class="txt2">Tem certeza que deseja continuar?</div>
+      <div class="buttons">
+        <button (click)="deleteTask()">Sim</button>
+        <button (click)="hiddenModal()">Não</button>
+      </div>
+    </div>
+  </div>
+</div>

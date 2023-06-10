@@ -9,17 +9,6 @@
   transform: translateX(100%);
   transition: 0.5s ease-in-out;
 
-  .close-icon {
-    top: 20px;
-    right: 20px;
-    padding: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #2e415d;
-    position: absolute;
-    border-radius: 5px;
-    background-color: #fff;
-  }
 
   .container-inputs {
     display: flex;
@@ -45,13 +34,14 @@
       padding: 0 0 0 20px;
       box-sizing: border-box;
 
-      button {
+      .button{
         width: 150px;
         border: none;
         padding: 15px;
         color: #fff;
         cursor: pointer;
         font-size: 1.1rem;
+        text-align: center;
         border-radius: 5px;
         background-color: #2e415d;
       }
@@ -65,7 +55,7 @@
         height: 50px;
         outline: none;
         color: #222222;
-        font-size: 1.3rem;
+        font-size: 1rem;
         border-radius: 5px;
         padding: 0 0 0 10px;
         box-sizing: border-box;

@@ -5,3 +5,15 @@
   margin: 0;
 }
 
+.close-icon {
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #2e415d;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #fff;
+}

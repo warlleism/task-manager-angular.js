@@ -22,14 +22,18 @@
     </div>
 
     <div class="inputs">
-      <div class="number">3</div>
-      <span class="material-symbols-outlined"> drag_indicator </span>
-      <input type="text" placeholder="Tecnologia" />
-    </div>
-
-    <div class="inputs">
-      <button (click)="createNewTask()">Criar Task</button>
-      <button (click)="updateTask()">Editar Task</button>
+      <div
+        class="button"
+        *ngIf="value$ | async; else valorIsFalse"
+        (click)="createNewTask()"
+      >
+        Criar Task
+      </div>
+      <ng-template #valorIsFalse
+        ><div (click)="updateTask()" class="button">
+          Editar Task
+        </div></ng-template
+      >
     </div>
   </div>
 </div>

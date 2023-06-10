@@ -19,7 +19,8 @@ if (parsedItem) {
 
 export const addNewTask = createAction('[App] Create new task', props<{ task: string, category: string }>());
 export const deleteTask = createAction('[App] Delete task', props<{ id: number }>());
-export const updateTask = createAction('[App] Edita task', props<{ task: string, category: string, id: number }>());
+export const updateTask = createAction('[App] Edit task', props<{ task: string, category: string, id: number }>());
+export const categoryEditTask = createAction('[App] Edit category', props<{ task: string, category: string, id: number }>());
 
 export const appInitialState: ITarefas = {
   item: localItem ? parsedItem : []
@@ -57,6 +58,26 @@ export const appReducer = createReducer(
     const filter = state.item.filter((e: ITarefa) => e.id !== action.id)
 
     localStorage.setItem('item', JSON.stringify([...filter, novaTask]))
+
+    return {
+      ...state,
+      item: [...filter, novaTask]
+    }
+  }),
+
+  on(categoryEditTask, (state, action) => {
+
+    const novaTask: ITarefa = {
+      id: action.id,
+      task: action.task,
+      category: action.category,
+    };
+
+    const filter = state.item.filter((e: ITarefa) => e.id !== action.id)
+
+    localStorage.setItem('item', JSON.stringify([...filter, novaTask]))
+
+    console.log(novaTask)
 
     return {
       ...state,
