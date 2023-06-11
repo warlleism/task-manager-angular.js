@@ -142,17 +142,34 @@
   .main-container {
     height: 100%;
     .create-button {
-      top: 30px;
+      top: 50%;
+      position: fixed;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 20px 0 0;
+
     }
     .container-tasks {
       margin-top: 50px;
     }
   }
 }
+
 @media screen and (max-width: 879px) {
   .main-container {
     width: 100vw;
     padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+    .container-tasks {
+      height: auto;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .main-container {
+    width: 100%;
+    padding: 0;
     align-items: center;
     justify-content: center;
     .container-tasks {

@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   justify-content: center;
 
@@ -79,6 +79,15 @@
           background: #167ff7;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-box {
+    .model {
+      width: 90%;
+      height: 300px;
     }
   }
 }

@@ -55,7 +55,7 @@ export class HomeComponent {
     this.id = id
     this.content.dispatch(showModalContent())
     const form = this.elementRef.nativeElement.querySelector('#form');
-    this.renderer.setStyle(form, 'transform', 'translateX(100%)');
+    this.renderer.setStyle(form, 'transform', 'translateX(200%)');
   }
 
   editCategory(task: any, value: string) {
