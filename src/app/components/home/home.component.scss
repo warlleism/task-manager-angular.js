@@ -3,9 +3,10 @@
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
+  overflow-y: scroll;
   position: relative;
   flex-direction: row;
+  align-items: start;
   justify-content: space-evenly;
   font-family: "Roboto", sans-serif;
 
@@ -38,7 +39,6 @@
   }
 
   .container-tasks {
-    height: 90%;
     width: 400px;
     display: flex;
     padding: 30px;
@@ -46,7 +46,7 @@
     border-radius: 10px;
     flex-direction: column;
     box-sizing: border-box;
-    margin: auto 20px 30px 20px;
+    margin: 50px 20px 30px 20px;
     box-shadow: 1px 1px 3px rgba(0, 23, 65, 0.171);
 
     .bar {
